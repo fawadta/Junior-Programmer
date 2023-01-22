@@ -1,0 +1,7 @@
+link: 
+https://learn.unity.com/tutorial/introduction-to-project-management-and-teamwork?uv=2020.3&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f71fe63edbc2a00200e9de0
+https://learn.unity.com/tutorial/introduction-to-user-feedback#
+https://www.ministryoftesting.com/dojo/lessons/the-art-of-the-bug-report
+
+
+

@@ -7,10 +7,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemies;
     public GameObject powerup;
 
-    public float xSpawnRangeMax = 18.0f;
+    public float xSpawnRangeMax = 10.0f;
     public float xSpawnRangeMin = -1.0f;
     public float zEnemySpawn = 19.5f;
-    public float zpowerupRange = 7.0f;
+    public float zpowerupRange = 15.0f;
     public float ySpawn = 1.0f;
 
     private float powerupSpawnTime = 5.0f;
@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SpawnRandonEnemy()

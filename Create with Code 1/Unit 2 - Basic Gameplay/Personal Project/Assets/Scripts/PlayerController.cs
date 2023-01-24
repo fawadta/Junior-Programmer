@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 200.0f;
+    private float speed = 1200.0f;
     private Rigidbody playerRB;
-    private float xBoundUp = 16;
-    private float xBoundDown = -1;
+    private float xBoundUp = 10;
+    private float xBoundDown = -2;
+    public float horizontalInput;
+    public float verticalInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,8 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
         playerRB.AddForce(Vector3.back * horizontalInput * speed);
         playerRB.AddForce(Vector3.right * verticalInput * speed);
@@ -40,13 +43,13 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xBoundDown, transform.position.y, transform.position.z);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Player has collided with Enemy");
         }
-    }
+    }*/
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Powerup"))

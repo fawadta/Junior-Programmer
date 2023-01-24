@@ -19,7 +19,7 @@ public class MoveDown : MonoBehaviour
     {
         objectRb.AddForce(Vector3.right * -speed);
 
-        if(transform.position.x < xBound)
+        if (transform.position.x < xBound)
         {
             Destroy(gameObject);
         }

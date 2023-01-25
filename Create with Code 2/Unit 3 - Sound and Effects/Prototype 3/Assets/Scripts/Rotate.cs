@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rotate : MonoBehaviour
 {
     private PlayerController playerControllerScript;
-    private float rotateSpeed = 10.0f;
+    public float rotateSpeed = 500.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +17,7 @@ public class Rotate : MonoBehaviour
     {
         if (!playerControllerScript.gameOver)
         {
-            transform.rotation = new Quaternion(rotateSpeed * Time.deltaTime, transform.rotation.y, transform.rotation.z, 1);
-            Debug.Log(transform.rotation);
+            transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
         }
     }
 }

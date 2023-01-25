@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab:
-  - {fileID: 6026278329452287137, guid: 98949124d05ff37489ee99ad93c4cd05, type: 3}
   - {fileID: 8777582834716067746, guid: b219675e5509cea44be32b97f8c10f95, type: 3}
-  - {fileID: 681213399045494437, guid: 6055a400eb30e90439722437b228b965, type: 3}
+  - {fileID: 6026278329452287137, guid: 98949124d05ff37489ee99ad93c4cd05, type: 3}
+  - {fileID: 5675264562482450858, guid: 6055a400eb30e90439722437b228b965, type: 3}
 --- !u!1001 &76758051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,7 +380,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 47
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -405,13 +405,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 4, z: -15}
+  m_LocalRotation: {x: 0.09617052, y: -0, z: -0, w: 0.9953649}
+  m_LocalPosition: {x: 9.51, y: 7.882, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.037, y: 0, z: 0}
 --- !u!82 &534669906
 AudioSource:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.016340787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -749,7 +749,7 @@ MonoBehaviour:
   crashSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
   playerAudio: {fileID: 0}
   jumpForce: 600
-  gravityModifier: 1.5
+  gravityModifier: 1.52
   isOnGround: 1
   gameOver: 0
 --- !u!4 &1462139357 stripped

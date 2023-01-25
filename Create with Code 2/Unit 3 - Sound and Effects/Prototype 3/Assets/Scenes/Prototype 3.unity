@@ -166,7 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a04e106172516d49956fe4ef81a60cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 6026278329452287137, guid: 98949124d05ff37489ee99ad93c4cd05, type: 3}
+  obstaclePrefab:
+  - {fileID: 6026278329452287137, guid: 98949124d05ff37489ee99ad93c4cd05, type: 3}
+  - {fileID: 8777582834716067746, guid: b219675e5509cea44be32b97f8c10f95, type: 3}
+  - {fileID: 681213399045494437, guid: 6055a400eb30e90439722437b228b965, type: 3}
 --- !u!1001 &76758051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,7 +354,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -662,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.016344346
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_LocalRotation.w

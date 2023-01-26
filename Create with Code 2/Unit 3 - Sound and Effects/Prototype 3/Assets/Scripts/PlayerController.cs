@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
     public AudioSource playerAudio;
-    public float jumpForce = 10.0f;
+    public float jumpForce = 600.0f;
+    public float doubleJumpForce = 500.0f;
     public float gravityModifier;
     public bool isOnGround = true;
     public bool gameOver;
+    public bool isDoubleJumpUsed;
+    public Button restartButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,14 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
+            isDoubleJumpUsed = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround && !isDoubleJumpUsed)
+        {
+            playerRb.AddForce(Vector3.up * doubleJumpForce, ForceMode.Impulse);
+            //playerAnim.SetTrigger("Jump_trig");
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
+            isDoubleJumpUsed = true;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -52,6 +64,7 @@ public class PlayerController : MonoBehaviour
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            restartButton.gameObject.SetActive(true);
         }
     }
 }

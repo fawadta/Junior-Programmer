@@ -8,6 +8,7 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
+  fontName: Exo 2 Thin
   fontNames:
   - Exo 2 Thin
   fallbackFontReferences: []

@@ -307,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426825985}
   - component: {fileID: 426825984}
+  - component: {fileID: 426825986}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -344,6 +345,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426825986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426825983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c0e1f24e2ce4a5b9bf1f3a7499cd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 3978578809026921305, guid: 9f6561ae89a55ab4a94d6097240d909c, type: 3}
+  amountToPool: 20
 --- !u!1 &475985833
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,11 +705,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139991464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29ab3393f53758441a1da9562bd9585b, type: 3}
+  m_Script: {fileID: 11500000, guid: 38e917c52987daa41af6a0305d9813c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3978578809026921305, guid: 9f6561ae89a55ab4a94d6097240d909c, type: 3}
-  ProjectileSpawnPoint: {fileID: 2074091479}
 --- !u!65 &1139991466
 BoxCollider:
   m_ObjectHideFlags: 0

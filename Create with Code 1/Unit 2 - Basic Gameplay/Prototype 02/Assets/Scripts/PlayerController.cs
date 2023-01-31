@@ -1,26 +1,19 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float horizontalInput, verticalInput;
-    private float speed = 30.0f;
-    private float xRange = 18.0f;
-    private float zRange = 12.0f;
-    private float zRangeMin = 0.0f;
+    private float horizontalInput;
+    private float speed = 20.0f;
+    private float xRange = 20;
     public GameObject projectilePrefab;
-    public Transform ProjectileSpawnPoint;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // horizontal
+        // Check for left and right bounds
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -31,26 +24,26 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
+        // Player movement left to right
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(horizontalInput * speed * Time.deltaTime * Vector3.right);
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
 
-        // vertical
-        if (transform.position.z > zRange)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zRange);
-        }
-        if (transform.position.z < -zRangeMin)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -zRangeMin);
-        }
-
-        verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(verticalInput * speed * Time.deltaTime * Vector3.forward);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Lunch a projectile from the player
-            Instantiate(projectilePrefab, ProjectileSpawnPoint.position, projectilePrefab.transform.rotation);
+            // No longer necessary to Instantiate prefabs
+            // Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+
+            // Get an object object from the pool
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+            if (pooledProjectile != null)
+            {
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = transform.position; // position it at player
+            }
         }
+
+
+
     }
 }

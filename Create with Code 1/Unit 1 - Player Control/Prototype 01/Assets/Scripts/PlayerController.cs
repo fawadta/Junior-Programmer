@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedometerText;
     [SerializeField] TextMeshProUGUI rpmText;
     [SerializeField] float speed;
+    [SerializeField] List<WheelCollider> allWheels;
+    [SerializeField] int wheelsOnGround;
     private void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -30,15 +32,35 @@ public class PlayerController : MonoBehaviour
         // Player Input
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
-        // Move the vehicle forward
-        //transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-        playerRb.AddRelativeForce(Vector3.forward * horsepower * forwardInput);
-        // Rotate the vehivcle 
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);
-        speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 3.6f);   // 2.237f for mph
-        speedometerText.SetText("Speed: " + speed + " kph");
-        rpm = (speed % 30) * 40;
-        rpmText.SetText("Rpm: " + rpm);
-        
+        if (IsOnGround())
+        {
+            // Move the vehicle forward
+            //transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            playerRb.AddRelativeForce(Vector3.forward * horsepower * forwardInput);
+            // Rotate the vehivcle 
+            transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontalInput);
+            speed = Mathf.RoundToInt(playerRb.velocity.magnitude * 3.6f);   // 2.237f for mph
+            speedometerText.SetText("Speed: " + speed + " kph");
+            rpm = (speed % 30) * 40;
+            rpmText.SetText("Rpm: " + rpm);
+        }
+    }
+    bool IsOnGround()
+    {
+        //wheelsOnGround = 0;
+        //foreach (WheelCollider wheel in allWheels)
+        //{
+        //    if (wheel.isGrounded)
+        //        wheelsOnGround++;
+        //}
+        //if (wheelsOnGround == 4)
+        //    return true;
+        //return false;
+        foreach (WheelCollider wheel in allWheels)
+        {
+            if (!wheel.isGrounded)
+                return false;
+        }
+        return true;
     }
 }

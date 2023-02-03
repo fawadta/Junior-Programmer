@@ -1,0 +1,2 @@
+Fixedupdate() is useful when u r trying to do movement and physics.
+Lateupdate() is useful when we've to calculate the camera positions.

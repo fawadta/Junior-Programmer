@@ -5,11 +5,11 @@ using System.IO;
 
 public class MainManager : MonoBehaviour
 {
-    public static MainManager Instance;
+    public static MainManager Instance { get; private set; }
     public Color TeamColor;
     private void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(Instance);
             return;
@@ -30,7 +30,7 @@ public class MainManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
     }
     public void LoadColor()
     {
